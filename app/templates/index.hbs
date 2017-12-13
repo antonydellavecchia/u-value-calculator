@@ -1,3 +1,16 @@
 <h2> Add Material Form</h2>
-<form {{action  >
+<form {{action 'saveMaterial' on='submit'}} >
+	<p>Material Name:</p>
+	{{input type="text" value=name}}
+
+	<p>Thickness:</p>
+	{{input type="text" value=thickness}}
+
+	<p>K-Value:</p>
+	{{input type="text" value=kValue}}
+
+	<p><button>Add Material</button></p>
+</form>
+
+{{u-value-calculator class="table" materials=materials materialList=materialList deleteMaterial='deleteMaterial'}}
 	

@@ -1,0 +1,47 @@
+<thead>
+	<tr>
+		<th colspan="5"> U-Value Calculator</th>
+	</tr>
+	<tr>
+		<th> Material Name</th>
+		<th> Thickness, m</th>
+		<th> K-value</th>
+		<th>Resistivity, K m<sup>2</sup>/W</th>
+		<th> Actions</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td> Outside Surface </td>
+		<td> -</td>
+		<td> -</td>
+		<td>{{materialList.outsideRes}} </td>
+		<td> -</td>
+	</tr>
+	{{#each materials as |material|}}
+	  <tr>
+			<td> {{material.name}}</td>
+			<td> {{material.thickness}}</td>
+			<td> {{material.kValue}}</td>
+			<td> {{material.resistivity}}</td>
+			<td> <button {{action 'deleteMaterial' material}}> Delete Material</button></td>
+		</tr>
+	{{/each}}
+	<tr>
+		<td> Inside Surface</td>
+		<td> -</td>
+		<td> -</td>
+		<td>{{materialList.insideRes}}</td>
+		<td> -</td>
+	</tr>
+</tbody>
+<tfoot>
+	<tr>
+		<td colspan="3">Total</td>
+		<td>{{materialList.totalRes}}</td>
+	</tr>
+	<tr>
+		<td colspan="4">U-Value = 1/{{materialList.totalRes}}</td>
+		<td>{{materialList.uValue}}</td>
+	</tr>
+</tfoot>
